@@ -42,7 +42,13 @@ Then configure the rules you want to use under the rules section.
 ## Rules
 
 <!-- begin auto-generated rules list -->
-TODO: Run eslint-doc-generator to generate the rules list.
+
+⚠️ Configurations set to warn in.
+
+| Name                                       | Description | ⚠️              |
+| :----------------------------------------- | :---------- | :-------------- |
+| [column-order](docs/rules/column-order.md) | nothing     | ![badge-base][] |
+
 <!-- end auto-generated rules list -->
 
 
