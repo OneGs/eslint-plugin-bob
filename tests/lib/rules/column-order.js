@@ -64,7 +64,7 @@ tester.run("column-order", rule, {
                                 align: "center",
                                 showOverflow: true,
                             },
-                             {
+                            {
                                 prop: "contractClassName",
                                 label: "流程",
                                 align: "center",
@@ -139,13 +139,13 @@ tester.run("column-order", rule, {
                                 align: "center",
                                 showOverflow: true,
                             },
-                             {
+                            {
                                 prop: "contractClassName",
                                 label: "时间",
                                 align: "center",
                                 showOverflow: true,
                             },
-                             {
+                            {
                                 prop: "contractClassName",
                                 label: "流程",
                                 align: "center",
