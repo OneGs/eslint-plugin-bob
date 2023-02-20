@@ -45,8 +45,8 @@ Then configure the rules you want to use under the rules section.
 ⚠️ Configurations set to warn in.\
 🔧 Automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/user-guide/command-line-interface#--fix).
 
-| Name                                       | Description                                    | ⚠️              | 🔧 |
-| :----------------------------------------- | :--------------------------------------------- | :-------------- | :- |
-| [column-order](docs/rules/column-order.md) | Sort of property field to avoid general error. | ![badge-base][] | 🔧 |
+| Name                                         | Description                                    | ⚠️              | 🔧 |
+| :------------------------------------------- | :--------------------------------------------- | :-------------- | :- |
+| [columns-order](docs/rules/columns-order.md) | Sort of property field to avoid general error. | ![badge-base][] | 🔧 |
 
 <!-- end auto-generated rules list -->

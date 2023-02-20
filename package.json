@@ -1,11 +1,12 @@
 {
   "name": "eslint-plugin-pit",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Extend eslint plugin for Vue-Pit",
   "keywords": [
     "eslint",
     "eslintplugin",
-    "eslint-plugin"
+    "eslint-plugin",
+    "pit"
   ],
   "author": "Onegsi",
   "main": "./lib/index.js",

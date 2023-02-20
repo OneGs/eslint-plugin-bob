@@ -1,4 +1,4 @@
-# Sort of property field to avoid general error (`pit/column-order`)
+# Sort of property field to avoid general error (`pit/columns-order`)
 
 ⚠️ This rule _warns_ in the `base` config.
 
@@ -30,6 +30,8 @@ Examples of **correct** code for this rule:
 // fill me in
 
 ```
+## Options
+
 ## When Not To Use It
 
 Give a short description of when it would be appropriate to turn off this rule.

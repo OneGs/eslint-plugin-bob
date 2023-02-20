@@ -1,6 +1,6 @@
 /**
- * @fileoverview nothing
- * @author cloumn-order
+ * @fileoverview enforce ordering of attributes
+ * @author columns-order
  */
 "use strict";
 
@@ -23,76 +23,25 @@ const tester = new RuleTester({
 // Tests
 //------------------------------------------------------------------------------
 
-tester.run("column-order", rule, {
+tester.run("columns-order", rule, {
   valid: [
     // give me some code that won't trigger a warning
   ],
 
   invalid: [
     {
-      filename: 'test.vue',
+      filename: '不完全字段乱序.vue',
       code: `
-        <template>
-            <div>name</div>
-        </template>
         <script>
             export default {
                 data() {
                     return {
                         columns: [
                             {
-                                prop: "contractClassName",
-                                label: "序号",
-                                align: "center",
-                                showOverflow: true,
-                            },
-                            {
-                                prop: "contractClassName",
-                                label: "名称",
-                                align: "center",
-                                showOverflow: true,
-                            },
-                            {
-                                prop: "contractClassName",
                                 label: "时间",
-                                align: "center",
-                                showOverflow: true,
                             },
                             {
-                                prop: "contractClassName",
                                 label: "填报组织",
-                                align: "center",
-                                showOverflow: true,
-                            },
-                            {
-                                prop: "contractClassName",
-                                label: "流程",
-                                align: "center",
-                                showOverflow: true,
-                            },
-                            {
-                                prop: "contractClassName",
-                                label: "填报人",
-                                align: "center",
-                                showOverflow: true,
-                            },
-                            {
-                                prop: "contractNumber",
-                                label: "填报单位",
-                                align: "center",
-                                showOverflow: true,
-                            },
-                            {
-                                prop: "contractClassName",
-                                label: "描述",
-                                align: "center",
-                                showOverflow: true,
-                            },
-                            {
-                                prop: "contractClassName",
-                                label: "操作",
-                                align: "center",
-                                showOverflow: true,
                             },
                         ]
                     }
@@ -101,67 +50,158 @@ tester.run("column-order", rule, {
         </script>
       `,
       output: `
-        <template>
-            <div>name</div>
-        </template>
         <script>
             export default {
                 data() {
                     return {
                         columns: [
                             {
-                                prop: "contractClassName",
-                                label: "序号",
-                                align: "center",
-                                showOverflow: true,
-                            },
-                            {
-                                prop: "contractClassName",
-                                label: "名称",
-                                align: "center",
-                                showOverflow: true,
-                            },
-                            {
-                                prop: "contractClassName",
-                                label: "填报人",
-                                align: "center",
-                                showOverflow: true,
-                            },
-                            {
-                                prop: "contractNumber",
-                                label: "填报单位",
-                                align: "center",
-                                showOverflow: true,
-                            },
-                            {
-                                prop: "contractClassName",
                                 label: "填报组织",
-                                align: "center",
-                                showOverflow: true,
                             },
                             {
-                                prop: "contractClassName",
                                 label: "时间",
-                                align: "center",
-                                showOverflow: true,
+                            },
+                        ]
+                    }
+                }
+            }  
+        </script>
+      `,
+      errors: [
+        {
+          message: 'Column "填报组织" should go before "时间".',
+        },
+      ]
+    },
+    {
+      filename: '完全字段乱序.vue',
+      code: `
+        <script>
+            export default {
+                data() {
+                    return {
+                        columns: [
+                            {
+                                label: "时间",
                             },
                             {
-                                prop: "contractClassName",
+                                label: "填报组织",
+                            },
+                            {
                                 label: "流程",
-                                align: "center",
-                                showOverflow: true,
                             },
                             {
-                                prop: "contractClassName",
-                                label: "描述",
-                                align: "center",
-                                showOverflow: true,
+                                label: "填报单位",
                             },
                             {
-                                prop: "contractClassName",
-                                label: "操作",
-                                align: "center",
-                                showOverflow: true,
+                                label: "填报人",
+                            },
+                        ]
+                    }
+                }
+            }  
+        </script>
+      `,
+      output: `
+        <script>
+            export default {
+                data() {
+                    return {
+                        columns: [
+                            {
+                                label: "填报人",
+                            },
+                            {
+                                label: "填报单位",
+                            },
+                            {
+                                label: "填报组织",
+                            },
+                            {
+                                label: "时间",
+                            },
+                            {
+                                label: "流程",
+                            },
+                        ]
+                    }
+                }
+            }  
+        </script>
+      `,
+      errors: [
+        {
+          message: 'Column "填报组织" should go before "时间".',
+        },
+        {
+          message: 'Column "填报单位" should go before "流程".',
+        },
+        {
+          message: 'Column "填报人" should go before "流程".',
+        },
+      ]
+    },
+    {
+      filename: '完全字段乱序-存在其它字段-before.vue',
+      code: `
+        <script>
+            export default {
+                data() {
+                    return {
+                        columns: [
+                            {
+                                label: "序号",
+                            },
+                            {
+                                label: "名称",
+                            },
+                            {
+                                label: "时间",
+                            },
+                            {
+                                label: "填报组织",
+                            },
+                            {
+                                label: "流程",
+                            },
+                            {
+                                label: "填报人",
+                            },
+                            {
+                                label: "填报单位",
+                            },
+                        ]
+                    }
+                }
+            }  
+        </script>
+      `,
+      output: `
+        <script>
+            export default {
+                data() {
+                    return {
+                        columns: [
+                            {
+                                label: "序号",
+                            },
+                            {
+                                label: "名称",
+                            },
+                            {
+                                label: "填报人",
+                            },
+                            {
+                                label: "填报单位",
+                            },
+                            {
+                                label: "填报组织",
+                            },
+                            {
+                                label: "时间",
+                            },
+                            {
+                                label: "流程",
                             },
                         ]
                     }
@@ -181,5 +221,239 @@ tester.run("column-order", rule, {
         },
       ]
     },
+    {
+      filename: '完全字段乱序-存在其它字段-after.vue',
+      code: `
+        <script>
+            export default {
+                data() {
+                    return {
+                        columns: [
+                            {
+                                label: "时间",
+                            },
+                            {
+                                label: "填报组织",
+                            },
+                            {
+                                label: "流程",
+                            },
+                            {
+                                label: "填报人",
+                            },
+                            {
+                                label: "填报单位",
+                            },
+                            {
+                                label: "描述",
+                            },
+                            {
+                                label: "操作",
+                            },
+                        ]
+                    }
+                }
+            }  
+        </script>
+      `,
+      output: `
+        <script>
+            export default {
+                data() {
+                    return {
+                        columns: [
+                            {
+                                label: "填报人",
+                            },
+                            {
+                                label: "填报单位",
+                            },
+                            {
+                                label: "填报组织",
+                            },
+                            {
+                                label: "时间",
+                            },
+                            {
+                                label: "流程",
+                            },
+                            {
+                                label: "描述",
+                            },
+                            {
+                                label: "操作",
+                            },
+                        ]
+                    }
+                }
+            }  
+        </script>
+      `,
+      errors: [
+        {
+          message: 'Column "填报组织" should go before "时间".',
+        },
+        {
+          message: 'Column "填报人" should go before "流程".',
+        },
+        {
+          message: 'Column "填报单位" should go before "流程".',
+        },
+      ]
+    },
+    {
+      filename: '完全字段乱序-存在其它字段-inner.vue',
+      code: `
+        <script>
+            export default {
+                data() {
+                    return {
+                        columns: [
+                            {
+                                label: "时间",
+                            },
+                            {
+                                label: "填报组织",
+                            },
+                            {
+                                label: "填报人",
+                            },
+                            {
+                                label: "填报测试",
+                            },
+                            {
+                                label: "填报测试2",
+                            },
+                            {
+                                label: "流程",
+                            },
+                            {
+                                label: "填报单位",
+                            },
+                            {
+                                label: "填报测试3",
+                            },
+                        ]
+                    }
+                }
+            }  
+        </script>
+      `,
+      output: `
+        <script>
+            export default {
+                data() {
+                    return {
+                        columns: [
+                            {
+                                label: "填报人",
+                            },
+                            {
+                                label: "填报单位",
+                            },
+                            {
+                                label: "填报组织",
+                            },
+                            {
+                                label: "时间",
+                            },
+                            {
+                                label: "流程",
+                            },
+                            {
+                                label: "填报测试",
+                            },
+                            {
+                                label: "填报测试2",
+                            },
+                            {
+                                label: "填报测试3",
+                            },
+                        ]
+                    }
+                }
+            }  
+        </script>
+      `,
+      errors: [
+        {
+          message: 'Column "填报组织" should go before "时间".',
+        },
+        {
+          message: 'Column "填报人" should go before "时间".',
+        },
+        {
+          message: 'Column "填报单位" should go before "流程".',
+        },
+      ]
+    },
+    {
+      filename: '存在重复的关键字.vue',
+      code: `
+        <script>
+            export default {
+                data() {
+                    return {
+                        columns: [
+                            {
+                                label: "时间",
+                            },
+                            {
+                                label: "填报组织",
+                            },
+                            {
+                                label: "测试单位",
+                            },
+                            {
+                                label: "测试时间",
+                            },
+                            {
+                                label: "测试单位1",
+                            },
+                        ]
+                    }
+                }
+            }  
+        </script>
+      `,
+      output: `
+        <script>
+            export default {
+                data() {
+                    return {
+                        columns: [
+                            {
+                                label: "测试单位",
+                            },
+                            {
+                                label: "测试单位1",
+                            },
+                            {
+                                label: "填报组织",
+                            },
+                            {
+                                label: "时间",
+                            },
+                            {
+                                label: "测试时间",
+                            },
+                        ]
+                    }
+                }
+            }  
+        </script>
+      `,
+      errors: [
+        {
+          message: 'Column "填报组织" should go before "时间".',
+        },
+        {
+          message: 'Column "测试单位" should go before "时间".',
+        },
+        {
+          message: 'Column "测试单位1" should go before "测试时间".',
+        },
+      ]
+    },
   ],
-});
+})
