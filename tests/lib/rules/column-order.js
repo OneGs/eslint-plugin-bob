@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 const RuleTester = require('eslint').RuleTester
-const rule = require('../../../lib/rules/core.js')
+const rule = require('../../../lib/rules/columns-order.js')
 
 const tester = new RuleTester({
   parser: require.resolve('vue-eslint-parser'),
