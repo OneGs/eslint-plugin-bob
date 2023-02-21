@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-pit",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Extend eslint plugin for Vue-Pit",
   "keywords": [
     "eslint",
