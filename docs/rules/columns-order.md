@@ -6,6 +6,12 @@
 
 <!-- end auto-generated rule header -->
 
+🚫 This rule is _disabled_ in the `base` config.
+
+🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
+
+<!-- end auto-generated rule header -->
+
 ## Rule Details
 
 对form-base中的columns字段进行值排序，避免出现字段位置各不相同的问题。

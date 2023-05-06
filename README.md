@@ -49,6 +49,7 @@ Then configure the rules you want to use under the rules section.
 | Name                                                                     | Description                                                              | ⚠️              | 🚫              | 🔧 |
 | :----------------------------------------------------------------------- | :----------------------------------------------------------------------- | :-------------- | :-------------- | :- |
 | [columns-order](docs/rules/columns-order.md)                             | Sort of property field to avoid general error.                           |                 | ![badge-base][] | 🔧 |
+| [columns-show-overflow](docs/rules/columns-show-overflow.md)             | column item must has a showOverflow prop                                 | ![badge-base][] |                 |    |
 | [form-base-request-interface](docs/rules/form-base-request-interface.md) | standard interface of form-base request is save delete info update page. | ![badge-base][] |                 | 🔧 |
 
 <!-- end auto-generated rules list -->
