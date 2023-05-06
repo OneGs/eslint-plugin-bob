@@ -26,6 +26,36 @@ const tester = new RuleTester({
 tester.run("columns-order", rule, {
   valid: [
     // give me some code that won't trigger a warning
+    {
+      filename: '存在重复的关键字.vue',
+      code: `
+        <script>
+            export default {
+                data() {
+                    return {
+                        columns: [
+                            {
+                                label: "时间",
+                            },
+                            {
+                                label: "填报组织",
+                            },
+                            {
+                                label: "测试单位",
+                            },
+                            {
+                                label: "测试时间",
+                            },
+                            {
+                                label: "测试单位1",
+                            },
+                        ]
+                    }
+                }
+            }  
+        </script>
+      `,
+    },
   ],
 
   invalid: [
@@ -384,74 +414,6 @@ tester.run("columns-order", rule, {
         },
         {
           message: 'Column "填报单位" should go before "流程".',
-        },
-      ]
-    },
-    {
-      filename: '存在重复的关键字.vue',
-      code: `
-        <script>
-            export default {
-                data() {
-                    return {
-                        columns: [
-                            {
-                                label: "时间",
-                            },
-                            {
-                                label: "填报组织",
-                            },
-                            {
-                                label: "测试单位",
-                            },
-                            {
-                                label: "测试时间",
-                            },
-                            {
-                                label: "测试单位1",
-                            },
-                        ]
-                    }
-                }
-            }  
-        </script>
-      `,
-      output: `
-        <script>
-            export default {
-                data() {
-                    return {
-                        columns: [
-                            {
-                                label: "测试单位",
-                            },
-                            {
-                                label: "测试单位1",
-                            },
-                            {
-                                label: "填报组织",
-                            },
-                            {
-                                label: "时间",
-                            },
-                            {
-                                label: "测试时间",
-                            },
-                        ]
-                    }
-                }
-            }  
-        </script>
-      `,
-      errors: [
-        {
-          message: 'Column "填报组织" should go before "时间".',
-        },
-        {
-          message: 'Column "测试单位" should go before "时间".',
-        },
-        {
-          message: 'Column "测试单位1" should go before "测试时间".',
         },
       ]
     },

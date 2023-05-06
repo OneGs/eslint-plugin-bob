@@ -19,6 +19,7 @@
     "update:eslint-docs": "eslint-doc-generator"
   },
   "dependencies": {
+    "generator-eslint": "^4.1.3",
     "requireindex": "^1.2.0",
     "vue-eslint-parser": "^9.0.1"
   },

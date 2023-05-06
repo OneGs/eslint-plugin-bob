@@ -43,10 +43,12 @@ Then configure the rules you want to use under the rules section.
 <!-- begin auto-generated rules list -->
 
 ⚠️ Configurations set to warn in.\
+🚫 Configurations disabled in.\
 🔧 Automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/user-guide/command-line-interface#--fix).
 
-| Name                                         | Description                                    | ⚠️              | 🔧 |
-| :------------------------------------------- | :--------------------------------------------- | :-------------- | :- |
-| [columns-order](docs/rules/columns-order.md) | Sort of property field to avoid general error. | ![badge-base][] | 🔧 |
+| Name                                                                     | Description                                                              | ⚠️              | 🚫              | 🔧 |
+| :----------------------------------------------------------------------- | :----------------------------------------------------------------------- | :-------------- | :-------------- | :- |
+| [columns-order](docs/rules/columns-order.md)                             | Sort of property field to avoid general error.                           |                 | ![badge-base][] | 🔧 |
+| [form-base-request-interface](docs/rules/form-base-request-interface.md) | standard interface of form-base request is save delete info update page. | ![badge-base][] |                 | 🔧 |
 
 <!-- end auto-generated rules list -->
